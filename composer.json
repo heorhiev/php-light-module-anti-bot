@@ -1,0 +1,37 @@
+{
+    "name": "heorhiev/php-app-support-bot",
+    "authors": [
+        {
+            "name": "Ruslan",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2",
+        "telegram-bot/api": "^2.4",
+        "heorhiev/php-app-toolkit": "dev-master",
+        "heorhiev/php-app-bot": "dev-master"
+    },
+    "require-dev": {
+        "ext-sqlite3": "*"
+    },
+    "extra": {
+        "bootstrap": "heorhiev\\php-app-support-bot\\Bootstrap"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\supportBot\\": "src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-app-toolkit.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-app-bot.git"
+        }
+    ]
+}
