@@ -3,28 +3,37 @@
 namespace app\supportBot;
 
 use app\bot\Bot;
-use app\supportBot\commands\StartCommand;
-use app\supportBot\commands\MessageCommand;
-use TelegramBot\Api\Client;
-use TelegramBot\Api\Types\Message;
+use app\supportBot\commands\{StartCommand, CallsCommand, HelpCommand, SupportCommand};
 
 
 class SupportBot extends Bot
 {
+    private static $_commands = [
+        'start' => StartCommand::class,
+        'calls' => CallsCommand::class,
+        'help' => HelpCommand::class,
+        'support' => SupportCommand::class,
+    ];
+
     public function handler(): void
     {
-        $this->getBot()->command('start', function(Message $message) {
-            (new StartCommand($this, $message))->run();
-        });
 
-        //Handle text messages
-        $this->getBot()->on(function (\TelegramBot\Api\Types\Update $update) {
-            (new MessageCommand($this, $update->getMessage()))->run();
-        }, function () {
-            return true;
-        });
+    }
 
-        $this->getBot()->run();
+
+    public static function getCommands(): array
+    {
+        return self::$_commands;
+    }
+
+
+    public static function getMenu(): array
+    {
+        return [
+            self::$_commands['calls'],
+            self::$_commands['help'],
+            self::$_commands['support'],
+        ];
     }
 
 
