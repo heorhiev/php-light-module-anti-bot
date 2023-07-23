@@ -15,11 +15,6 @@ class SupportBot extends Bot
         'support' => SupportCommand::class,
     ];
 
-    public function handler(): void
-    {
-
-    }
-
 
     public static function getCommands(): array
     {
