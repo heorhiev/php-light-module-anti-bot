@@ -9,6 +9,6 @@ class SupportBotController implements \app\toolkit\components\controllers\HttpCo
 {
     public function main()
     {
-        (new SupportBot('support/telegram'))->handler();
+        (new SupportBot('support/telegram'))->run();
     }
 }

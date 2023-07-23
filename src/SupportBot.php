@@ -15,25 +15,8 @@ class SupportBot extends Bot
         'support' => SupportCommand::class,
     ];
 
-
     public static function getCommands(): array
     {
         return self::$_commands;
-    }
-
-
-    public static function getMenu(): array
-    {
-        return [
-            self::$_commands['calls'],
-            self::$_commands['help'],
-            self::$_commands['support'],
-        ];
-    }
-
-
-    public static function getVewPath(string $view): string
-    {
-        return '{@vendorPath}/heorhiev/php-app-support-bot/src/views/' . $view;
     }
 }
