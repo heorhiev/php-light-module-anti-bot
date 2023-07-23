@@ -5,7 +5,7 @@ namespace app\supportBot\commands;
 use app\claimBot\constants\ClaimBotConst;
 
 
-class StartCommand extends \app\bot\services\Command
+class StartCommand extends \app\bot\models\Command
 {
     public function run(): void
     {
