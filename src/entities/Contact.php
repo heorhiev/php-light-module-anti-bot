@@ -1,17 +1,17 @@
 <?php
 
-namespace app\SupportBot\entities;
+namespace app\supportBot\entities;
 
 use app\toolkit\components\Entity;
 use app\toolkit\components\repository\Repository;
-use app\SupportBot\repository\ContactsRepository;
+use app\supportBot\repository\ContactsRepository;
 
 
 class Contact extends Entity
 {
     public $id;
     public $name;
-    public $step;
+    public $command;
     public $phone;
     public $status;
     public $created;
@@ -22,7 +22,7 @@ class Contact extends Entity
     {
         return [
             'integer' => ['id', 'status'],
-            'string' => ['name', 'step', 'phone', 'created'],
+            'string' => ['name', 'phone', 'command', 'created'],
         ];
     }
 
