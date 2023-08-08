@@ -26,12 +26,14 @@ class SupportCommand extends \app\bot\models\Command
 
         $forumTopicId = Forum::getContactTopicId($this->getBot());
 
-        try {
-            $adminMessage->setMessageThreadId($forumTopicId);
-            Forum::sendMessage($this->getBot(), $adminMessage);
-        } catch (\Exception $exception) {
-            Forum::deleteTopic($forumTopicId);
-            $forumTopicId = null;
+        if ($forumTopicId) {
+            try {
+                $adminMessage->setMessageThreadId($forumTopicId);
+                Forum::sendMessage($this->getBot(), $adminMessage);
+            } catch (\Exception $exception) {
+                Forum::deleteTopic($forumTopicId);
+                $forumTopicId = null;
+            }   
         }
 
         if (!$forumTopicId) {
