@@ -23,27 +23,7 @@ class StartCommand extends \app\bot\models\Command
             $buttons[] = [['text' => $text, 'callback_data' => $command]];
         }
 
-//        $keyboard = new ReplyKeyboardMarkup($buttons, false, true, true);
-
-        $keyboard = new \TelegramBot\Api\Types\ReplyKeyboardMarkup(
-            [
-                [
-                    ['text' => $menu['rates'], 'callback_data' => 'rates'],
-                    ['text' => $menu['calls'], 'callback_data' => 'calls'],
-                    ['text' => $menu['bonuses'], 'callback_data' => 'bonuses'],
-                ],
-                [
-                    ['text' => $menu['cases'], 'callback_data' => 'cases'],
-                    ['text' => $menu['indicators'], 'callback_data' => 'indicators'],
-                ],
-                [
-                    ['text' => $menu['support'], 'callback_data' => 'support']
-                ]
-            ],
-            false,
-            true,
-            true
-        );
+        $keyboard = new ReplyKeyboardMarkup($buttons, false, true, true);
 
         $message->setKeyboardMarkup($keyboard);
 
@@ -62,7 +42,7 @@ class StartCommand extends \app\bot\models\Command
     }
 
 
-    private static function createContact($userId)
+    private static function createContact($userId): void
     {
         Contact::repository()->delete(['id' => $userId]);
 
