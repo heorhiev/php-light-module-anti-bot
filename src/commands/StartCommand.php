@@ -1,10 +1,10 @@
 <?php
 
-namespace app\supportBot\commands;
+namespace app\clientsBot\commands;
 
 use app\bot\models\Message;
-use app\supportBot\constants\SupportBotConst;
-use app\supportBot\entities\Contact;
+use app\clientsBot\constants\clientsBotConst;
+use app\clientsBot\entities\Contact;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 
@@ -48,7 +48,7 @@ class StartCommand extends \app\bot\models\Command
 
         Contact::repository()->create([
             'id' => $userId,
-            'status' => SupportBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => clientsBotConst::CONTACT_STATUS_ACTIVE,
         ]);
     }
 }

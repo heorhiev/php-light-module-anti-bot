@@ -1,5 +1,5 @@
 {
-    "name": "heorhiev/php-app-support-bot",
+    "name": "heorhiev/php-app-clients-bot",
     "authors": [
         {
             "name": "Ruslan",
@@ -17,11 +17,11 @@
         "ext-sqlite3": "*"
     },
     "extra": {
-        "bootstrap": "heorhiev\\php-app-support-bot\\Bootstrap"
+        "bootstrap": "heorhiev\\php-app-clients-bot\\Bootstrap"
     },
     "autoload": {
         "psr-4": {
-            "app\\supportBot\\": "src"
+            "app\\clientsBot\\": "src"
         }
     },
     "repositories": [

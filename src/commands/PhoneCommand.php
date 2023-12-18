@@ -1,8 +1,8 @@
 <?php
 
-namespace app\supportBot\commands;
+namespace app\clientsBot\commands;
 
-use app\supportBot\entities\Contact;
+use app\clientsBot\entities\Contact;
 use app\toolkit\components\validators\PhoneValidator;
 
 
