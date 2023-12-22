@@ -31,9 +31,12 @@ class NameCommand extends \app\bot\models\Command
 
     private function start(): void
     {
-        $this->getBot()->sendMessage(
-            $this->getBot()->getNewMessage()->setMessageView('name/start')
-        );
+        $message = $this
+            ->getBot()
+            ->getNewMessage()
+            ->setMessageView('name/start');
+
+        $this->getBot()->sendMessage($message);
     }
 
 
