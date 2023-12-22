@@ -13,6 +13,7 @@ class Contact extends Entity
     public $name;
     public $command;
     public $phone;
+    public $birthday;
     public $status;
     public $created;
 
@@ -22,7 +23,7 @@ class Contact extends Entity
     {
         return [
             'integer' => ['id', 'status'],
-            'string' => ['name', 'phone', 'command', 'created'],
+            'string' => ['name', 'phone', 'birthday', 'command', 'created'],
         ];
     }
 
