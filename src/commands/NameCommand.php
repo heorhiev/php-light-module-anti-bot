@@ -45,7 +45,8 @@ class NameCommand extends \app\bot\models\Command
         $message = $this
             ->getBot()
             ->getNewMessage()
-            ->setMessageView('name/start');
+            ->setMessageView('name/start')
+            ->setKeyboardMarkup($keyboard);
 
         $this->getBot()->sendMessage($message);
     }
