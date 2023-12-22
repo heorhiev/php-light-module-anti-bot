@@ -33,9 +33,25 @@ class phoneCommand extends \app\bot\models\Command
 
     private function start(): void
     {
-        $this->getBot()->sendMessage(
-            $this->getBot()->getNewMessage()->setMessageView('phone/start')
+        $sendPhoneButton = [
+            'text' => $this->getBot()->getOptions()->buttons['sendPhone'],
+            'request_contact' => true
+        ];
+
+        $keyboard = new \TelegramBot\Api\Types\ReplyKeyboardMarkup(
+            [[$sendPhoneButton]],
+            true,
+            true,
+            true
         );
+
+        $message = $this
+            ->getBot()
+            ->getNewMessage()
+            ->setMessageView('phone/start')
+            ->setKeyboardMarkup($keyboard);
+
+        $this->getBot()->sendMessage($message);
     }
 
 
