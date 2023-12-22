@@ -3,7 +3,7 @@
 namespace app\clientsBot\commands;
 
 use app\bot\models\Message;
-use app\clientsBot\constants\clientsBotConst;
+use app\clientsBot\constants\ClientsBotConst;
 use app\clientsBot\entities\Contact;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
@@ -48,7 +48,7 @@ class StartCommand extends \app\bot\models\Command
 
         Contact::repository()->create([
             'id' => $userId,
-            'status' => clientsBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => ClientsBotConst::CONTACT_STATUS_ACTIVE,
         ]);
     }
 }

@@ -2,10 +2,8 @@
 
 namespace app\clientsBot\commands;
 
-use app\bot\models\Message;
-use app\clientsBot\utils\Forum;
 use app\clientsBot\entities\Contact;
-use app\clientsBot\constants\clientsBotConst;
+use app\clientsBot\constants\ClientsBotConst;
 use app\toolkit\services\LoggerService;
 
 
@@ -13,12 +11,15 @@ class NotifyCommand extends \app\bot\models\Command
 {
     public function run(): void
     {
-        if ($this->getBot()->getIncomeMessage()->getChat()->getId() != $this->getBot()->getOptions()->data['support']['forum']) {
+        $adminChatIds = $this->getBot()->getOptions()->data['notify']['admins'];
+        $currentUserId = $this->getBot()->getIncomeMessage()->getChat()->getId();
+
+        if (!in_array($currentUserId, $adminChatIds)) {
             return;
         }
 
         $contacts = Contact::repository()->select(['id'])->filter([
-            'status' => clientsBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => ClientsBotConst::CONTACT_STATUS_ACTIVE,
         ])->asArrayAll();
 
         $notifyText = trim($this->getBot()->getIncomeMessage()->getParams());
