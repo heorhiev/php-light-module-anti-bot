@@ -3,7 +3,7 @@
 namespace app\clientsBot\commands;
 
 use app\clientsBot\entities\Contact;
-use app\clientsBot\constants\clientsBotConst;
+use app\clientsBot\constants\ClientsBotConst;
 use app\toolkit\services\LoggerService;
 
 
@@ -19,7 +19,7 @@ class NotifyCommand extends \app\bot\models\Command
         }
 
         $contacts = Contact::repository()->select(['id'])->filter([
-            'status' => clientsBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => ClientsBotConst::CONTACT_STATUS_ACTIVE,
         ])->asArrayAll();
 
         $notifyText = trim($this->getBot()->getIncomeMessage()->getParams());
