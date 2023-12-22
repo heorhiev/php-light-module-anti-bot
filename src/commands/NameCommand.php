@@ -3,6 +3,7 @@
 namespace app\clientsBot\commands;
 
 use app\clientsBot\entities\Contact;
+use app\clientsBot\helpers\MenuHelper;
 use app\toolkit\components\validators\TextValidator;
 
 
@@ -49,14 +50,17 @@ class NameCommand extends \app\bot\models\Command
     private function end(string $name): void
     {
         Contact::repository()->update(
-            ['name' => $name],
+            ['name' => $name, 'command' => ''],
             ['id' => $this->getBot()->getUserId()]
         );
 
-        $this->getBot()->sendMessage(
-            $this->getBot()->getNewMessage()->setMessageView('thanks')->setAttributes([
-                'name' => $name,
-            ])
-        );
+        $message = $this
+            ->getBot()
+            ->getNewMessage()
+            ->setMessageView('thanks')
+            ->setAttributes(['name' => $name])
+            ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
+
+        $this->getBot()->sendMessage($message);
     }
 }

@@ -3,6 +3,7 @@
 namespace app\clientsBot\commands;
 
 use app\clientsBot\entities\Contact;
+use app\clientsBot\helpers\MenuHelper;
 use app\toolkit\components\validators\PhoneValidator;
 
 
@@ -16,7 +17,7 @@ class phoneCommand extends \app\bot\models\Command
             $enteredText = trim($this->getBot()->getIncomeMessage()->getText());
         }
 
-        if (empty($enteredText)) {
+        if (empty($enteredText) || $enteredText == $this->getBot()->getMenu()['phone']) {
             $this->start();
             return;
         }
@@ -51,18 +52,21 @@ class phoneCommand extends \app\bot\models\Command
     private function end(string $phone): void
     {
         Contact::repository()->update(
-            ['phone' => $phone],
+            ['phone' => $phone, 'command' => ''],
             ['id' => $this->getBot()->getUserId()]
         );
 
         /** @var Contact $contact */
         $contact = Contact::repository()->findById($this->getUserId())->asEntityOne();
 
-        $this->getBot()->sendMessage(
-            $this->getBot()->getNewMessage()->setMessageView('thanks')->setAttributes([
-                'name' => $contact->name,
-            ])
-        );
+        $message = $this
+            ->getBot()
+            ->getNewMessage()
+            ->setMessageView('thanks')
+            ->setAttributes(['name' => $contact->name])
+            ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
+
+        $this->getBot()->sendMessage($message);
     }
 
 

@@ -3,6 +3,7 @@
 namespace app\clientsBot\commands;
 
 use app\clientsBot\entities\Contact;
+use app\clientsBot\helpers\MenuHelper;
 use app\toolkit\components\validators\TextValidator;
 
 
@@ -12,7 +13,7 @@ class BirthdayCommand extends \app\bot\models\Command
     {
         $enteredText = trim($this->getBot()->getIncomeMessage()->getText());
 
-        if (empty($enteredText)) {
+        if (empty($enteredText) || $enteredText == $this->getBot()->getMenu()['birthday']) {
             $this->start();
             return;
         }
@@ -49,14 +50,17 @@ class BirthdayCommand extends \app\bot\models\Command
     private function end(string $birthday): void
     {
         Contact::repository()->update(
-            ['birthday' => $birthday],
+            ['birthday' => $birthday, 'command' => ''],
             ['id' => $this->getBot()->getUserId()]
         );
 
-        $this->getBot()->sendMessage(
-            $this->getBot()->getNewMessage()->setMessageView('thanks')->setAttributes([
-                'birthday' => $birthday,
-            ])
-        );
+        $message = $this
+            ->getBot()
+            ->getNewMessage()
+            ->setMessageView('thanks')
+            ->setAttributes(['birthday' => $birthday])
+            ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
+
+        $this->getBot()->sendMessage($message);
     }
 }
