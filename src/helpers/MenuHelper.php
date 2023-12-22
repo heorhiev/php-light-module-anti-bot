@@ -11,9 +11,9 @@ class MenuHelper
     {
         $buttons  = [];
         foreach ($menu as $command => $text) {
-            $buttons[] = [['text' => $text, 'callback_data' => $command]];
+            $buttons[] = ['text' => $text, 'callback_data' => $command];
         }
 
-        return new ReplyKeyboardMarkup($buttons, false, true, true);
+        return new ReplyKeyboardMarkup([$buttons], false, true, true);
     }
 }

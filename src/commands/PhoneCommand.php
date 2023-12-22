@@ -34,7 +34,7 @@ class phoneCommand extends \app\bot\models\Command
     private function start(): void
     {
         $sendPhoneButton = [
-            'text' => $this->getBot()->getOptions()->buttons['sendPhone'],
+            'text' => "Надіслати номер телефону",
             'request_contact' => true
         ];
 
@@ -78,7 +78,7 @@ class phoneCommand extends \app\bot\models\Command
         $message = $this
             ->getBot()
             ->getNewMessage()
-            ->setMessageView('thanks')
+            ->setMessageView('phone/thanks')
             ->setAttributes(['name' => $contact->name])
             ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
 
