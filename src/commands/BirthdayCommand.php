@@ -57,7 +57,7 @@ class BirthdayCommand extends \app\bot\models\Command
         $message = $this
             ->getBot()
             ->getNewMessage()
-            ->setMessageView('thanks')
+            ->setMessageView('birthday/thanks')
             ->setAttributes(['birthday' => $birthday])
             ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
 
