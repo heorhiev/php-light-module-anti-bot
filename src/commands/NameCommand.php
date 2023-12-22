@@ -31,6 +31,17 @@ class NameCommand extends \app\bot\models\Command
 
     private function start(): void
     {
+        $sendPhoneButton = [
+            'text' => $this->getBot()->getIncomeMessage()->getSenderFullName(),
+        ];
+
+        $keyboard = new \TelegramBot\Api\Types\ReplyKeyboardMarkup(
+            [[$sendPhoneButton]],
+            true,
+            true,
+            true
+        );
+
         $message = $this
             ->getBot()
             ->getNewMessage()

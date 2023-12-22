@@ -79,7 +79,7 @@ class phoneCommand extends \app\bot\models\Command
             ->getBot()
             ->getNewMessage()
             ->setMessageView('phone/thanks')
-            ->setAttributes(['name' => $contact->name])
+            ->setAttributes(['name' => $contact->name, 'phone' => $phone])
             ->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
 
         $this->getBot()->sendMessage($message);
