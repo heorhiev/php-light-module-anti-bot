@@ -5,6 +5,7 @@ namespace app\clientsBot\commands;
 use app\bot\models\Message;
 use app\clientsBot\constants\ClientsBotConst;
 use app\clientsBot\entities\Contact;
+use app\clientsBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 
@@ -16,16 +17,7 @@ class StartCommand extends \app\bot\models\Command
 
         $message = $this->getBot()->getNewMessage();
 
-        $menu = $this->getBot()->getMenu();
-
-        $buttons  = [];
-        foreach ($menu as $command => $text) {
-            $buttons[] = [['text' => $text, 'callback_data' => $command]];
-        }
-
-        $keyboard = new ReplyKeyboardMarkup($buttons, false, true, true);
-
-        $message->setKeyboardMarkup($keyboard);
+        $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
 
 //        foreach ($menu as $command => $text) {
 //            $buttons[] = [[
