@@ -12,7 +12,7 @@ class NameCommand extends \app\bot\models\Command
     {
         $enteredText = trim($this->getBot()->getIncomeMessage()->getText());
 
-        if (empty($enteredText)) {
+        if (empty($enteredText) || $enteredText == $this->getBot()->getMenu()['name']) {
             $this->start();
             return;
         }
