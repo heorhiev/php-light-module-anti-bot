@@ -1,8 +1,8 @@
 <?php
 
-namespace app\clientsBot;
+namespace app\antiBot;
 
-use app\clientsBot\controllers\http\ClientsBotController;
+use app\antiBot\controllers\http\ClientsBotController;
 use app\toolkit\components\bootstrap\BootstrapInterface;
 use app\toolkit\components\Route;
 

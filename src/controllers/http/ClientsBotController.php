@@ -1,11 +1,12 @@
 <?php
 
-namespace app\clientsBot\controllers\http;
+namespace app\antiBot\controllers\http;
 
-use app\clientsBot\ClientsBot;
+use app\antiBot\ClientsBot;
+use light\http\ControllerInterface;
 
 
-class ClientsBotController implements \app\toolkit\components\controllers\HttpControllerInterface
+class ClientsBotController implements ControllerInterface
 {
     public function main(): void
     {

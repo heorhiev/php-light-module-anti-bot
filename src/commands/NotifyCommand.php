@@ -1,13 +1,13 @@
 <?php
 
-namespace app\clientsBot\commands;
+namespace app\antiBot\commands;
 
-use app\clientsBot\entities\Contact;
-use app\clientsBot\constants\ClientsBotConst;
+use app\antiBot\entities\Contact;
+use app\antiBot\constants\BotConst;
 use app\toolkit\services\LoggerService;
 
 
-class NotifyCommand extends \app\bot\models\Command
+class NotifyCommand extends \light\tg\bot\models\Command
 {
     public function run(): void
     {
@@ -19,7 +19,7 @@ class NotifyCommand extends \app\bot\models\Command
         }
 
         $contacts = Contact::repository()->select(['id'])->filter([
-            'status' => ClientsBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => BotConst::CONTACT_STATUS_ACTIVE,
         ])->asArrayAll();
 
         $notifyText = trim($this->getBot()->getIncomeMessage()->getParams());

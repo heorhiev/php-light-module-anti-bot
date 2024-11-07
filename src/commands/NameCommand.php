@@ -1,13 +1,13 @@
 <?php
 
-namespace app\clientsBot\commands;
+namespace app\antiBot\commands;
 
-use app\clientsBot\entities\Contact;
-use app\clientsBot\helpers\MenuHelper;
+use app\antiBot\entities\Contact;
+use app\antiBot\helpers\MenuHelper;
 use app\toolkit\components\validators\TextValidator;
 
 
-class NameCommand extends \app\bot\models\Command
+class NameCommand extends \light\tg\bot\models\Command
 {
     public function run(): void
     {

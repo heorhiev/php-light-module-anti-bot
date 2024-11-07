@@ -1,15 +1,15 @@
 <?php
 
-namespace app\clientsBot\commands;
+namespace app\antiBot\commands;
 
-use app\bot\models\Message;
-use app\clientsBot\constants\ClientsBotConst;
-use app\clientsBot\entities\Contact;
-use app\clientsBot\helpers\MenuHelper;
+use light\tg\bot\models\Message;
+use app\antiBot\constants\BotConst;
+use app\antiBot\entities\Contact;
+use app\antiBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 
-class StartCommand extends \app\bot\models\Command
+class StartCommand extends \light\tg\bot\models\Command
 {
     public function run(): void
     {
@@ -40,7 +40,7 @@ class StartCommand extends \app\bot\models\Command
 
         Contact::repository()->create([
             'id' => $userId,
-            'status' => ClientsBotConst::CONTACT_STATUS_ACTIVE,
+            'status' => BotConst::CONTACT_STATUS_ACTIVE,
         ]);
     }
 }

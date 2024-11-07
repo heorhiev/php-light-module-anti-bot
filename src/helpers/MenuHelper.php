@@ -1,6 +1,6 @@
 <?php
 
-namespace app\clientsBot\helpers;
+namespace app\antiBot\helpers;
 
 
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;

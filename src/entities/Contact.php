@@ -1,10 +1,10 @@
 <?php
 
-namespace app\clientsBot\entities;
+namespace app\antiBot\entities;
 
 use app\toolkit\components\Entity;
 use app\toolkit\components\repository\Repository;
-use app\clientsBot\repository\ContactsRepository;
+use app\antiBot\repository\ContactsRepository;
 
 
 class Contact extends Entity

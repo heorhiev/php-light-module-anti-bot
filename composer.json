@@ -1,5 +1,5 @@
 {
-    "name": "heorhiev/php-app-clients-bot",
+    "name": "heorhiev/php-app-anti-bot",
     "authors": [
         {
             "name": "Ruslan",
@@ -16,22 +16,19 @@
     "require-dev": {
         "ext-sqlite3": "*"
     },
-    "extra": {
-        "bootstrap": "heorhiev\\php-app-clients-bot\\Bootstrap"
-    },
     "autoload": {
         "psr-4": {
-            "app\\clientsBot\\": "src"
+            "app\\antiBot\\": "src"
         }
     },
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/heorhiev/php-app-toolkit.git"
+            "url": "https://github.com/heorhiev/php-light-app.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/heorhiev/php-app-bot.git"
+            "url": "https://github.com/heorhiev/php-light-tg-bot.git"
         }
     ]
 }

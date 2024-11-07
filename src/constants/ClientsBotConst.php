@@ -1,9 +1,9 @@
 <?php
 
-namespace app\clientsBot\constants;
+namespace app\antiBot\constants;
 
 
-final class ClientsBotConst
+final class BotConst
 {
     const CONTACT_STATUS_ACTIVE = 1;
 }

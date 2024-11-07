@@ -1,6 +1,6 @@
 <?php
 
-namespace app\clientsBot\repository;
+namespace app\antiBot\repository;
 
 use app\toolkit\components\repository\Repository;
 
