@@ -10,8 +10,10 @@
     "require": {
         "php": ">=7.2",
         "telegram-bot/api": "^2.4",
-        "heorhiev/php-app-toolkit": "dev-master",
-        "heorhiev/php-app-bot": "dev-master"
+        "heorhiev/php-light-app": "dev-master",
+        "heorhiev/php-light-orm": "dev-master",
+        "heorhiev/php-light-http": "dev-master",
+        "heorhiev/php-light-tg-bot": "dev-master"
     },
     "require-dev": {
         "ext-sqlite3": "*"
@@ -25,6 +27,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/heorhiev/php-light-app.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-orm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-http.git"
         },
         {
             "type": "vcs",

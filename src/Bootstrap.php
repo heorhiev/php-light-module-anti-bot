@@ -3,8 +3,8 @@
 namespace app\antiBot;
 
 use app\antiBot\controllers\http\ClientsBotController;
-use app\toolkit\components\bootstrap\BootstrapInterface;
 use app\toolkit\components\Route;
+use light\app\BootstrapInterface;
 
 
 class Bootstrap implements BootstrapInterface

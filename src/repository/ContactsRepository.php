@@ -2,7 +2,7 @@
 
 namespace app\antiBot\repository;
 
-use app\toolkit\components\repository\Repository;
+use light\orm\repository\Repository;
 
 
 class ContactsRepository extends Repository

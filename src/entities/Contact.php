@@ -2,8 +2,8 @@
 
 namespace app\antiBot\entities;
 
-use app\toolkit\components\Entity;
-use app\toolkit\components\repository\Repository;
+use light\orm\Entity;
+use light\orm\repository\Repository;
 use app\antiBot\repository\ContactsRepository;
 
 
