@@ -1,6 +1,6 @@
 <?php
 
-namespace app\antiBot\constants;
+namespace light\module\antiBot\constants;
 
 
 final class BotConst

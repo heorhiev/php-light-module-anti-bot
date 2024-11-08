@@ -1,6 +1,6 @@
 <?php
 
-namespace app\antiBot\repository;
+namespace light\module\antiBot\repository;
 
 use light\orm\repository\Repository;
 

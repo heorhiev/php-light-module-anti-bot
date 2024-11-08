@@ -1,5 +1,5 @@
 {
-    "name": "heorhiev/php-app-anti-bot",
+    "name": "heorhiev/php-light-module-anti-bot",
     "authors": [
         {
             "name": "Ruslan",
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "app\\antiBot\\": "src"
+            "light\\module\\antiBot\\": "src"
         }
     },
     "repositories": [

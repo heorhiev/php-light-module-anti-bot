@@ -1,10 +1,10 @@
 <?php
 
-namespace app\antiBot\entities;
+namespace light\module\antiBot\entities;
 
 use light\orm\Entity;
 use light\orm\repository\Repository;
-use app\antiBot\repository\ContactsRepository;
+use light\module\antiBot\repository\ContactsRepository;
 
 
 class Contact extends Entity

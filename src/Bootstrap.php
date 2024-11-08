@@ -1,18 +1,16 @@
 <?php
 
-namespace app\antiBot;
+namespace light\module\antiBot;
 
-use app\antiBot\controllers\http\ClientsBotController;
-use app\toolkit\components\Route;
+use light\module\antiBot\controllers\http\ClientsBotController;
 use light\app\BootstrapInterface;
+use light\http\Http;
 
 
 class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app): void
     {
-        Route::add([
-            'clients-bot-handler' => ClientsBotController::class,
-        ]);
+        Http::addRoute('clients-bot-handler', ClientsBotController::class);
     }
 }

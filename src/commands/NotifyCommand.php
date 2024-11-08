@@ -1,9 +1,9 @@
 <?php
 
-namespace app\antiBot\commands;
+namespace light\module\antiBot\commands;
 
-use app\antiBot\entities\Contact;
-use app\antiBot\constants\BotConst;
+use light\module\antiBot\entities\Contact;
+use light\module\antiBot\constants\BotConst;
 use app\toolkit\services\LoggerService;
 
 

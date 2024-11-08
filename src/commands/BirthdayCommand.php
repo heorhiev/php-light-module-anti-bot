@@ -1,9 +1,9 @@
 <?php
 
-namespace app\antiBot\commands;
+namespace light\module\antiBot\commands;
 
-use app\antiBot\entities\Contact;
-use app\antiBot\helpers\MenuHelper;
+use light\module\antiBot\entities\Contact;
+use light\module\antiBot\helpers\MenuHelper;
 use app\toolkit\components\validators\TextValidator;
 
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\antiBot\commands;
+namespace light\module\antiBot\commands;
 
 use light\tg\bot\models\Message;
-use app\antiBot\constants\BotConst;
-use app\antiBot\entities\Contact;
-use app\antiBot\helpers\MenuHelper;
+use light\module\antiBot\constants\BotConst;
+use light\module\antiBot\entities\Contact;
+use light\module\antiBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\antiBot;
+namespace light\module\antiBot;
 
 use light\tg\bot\Bot;
-use app\antiBot\entities\Contact;
-use app\antiBot\commands\{
+use light\module\antiBot\entities\Contact;
+use light\module\antiBot\commands\{
     StartCommand,
     BirthdayCommand,
     NameCommand,

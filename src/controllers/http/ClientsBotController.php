@@ -1,8 +1,8 @@
 <?php
 
-namespace app\antiBot\controllers\http;
+namespace light\module\antiBot\controllers\http;
 
-use app\antiBot\ClientsBot;
+use light\module\antiBot\ClientsBot;
 use light\http\ControllerInterface;
 
 
