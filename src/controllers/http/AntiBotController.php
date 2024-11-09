@@ -10,6 +10,7 @@ class AntiBotController implements ControllerInterface
 {
     public function main(): void
     {
-        (new AntiBot('anti/telegram'))->run();
+        $bot = new AntiBot('anti/telegram');
+        $bot->run();
     }
 }
