@@ -13,7 +13,7 @@ use light\module\antiBot\commands\{
 };
 
 
-class ClientsBot extends Bot
+class AntiBot extends Bot
 {
     private static $_commands = [
         'start' => StartCommand::class,
