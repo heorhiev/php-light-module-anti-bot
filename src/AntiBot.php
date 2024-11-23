@@ -6,10 +6,6 @@ use light\tg\bot\Bot;
 use light\module\antiBot\entities\Contact;
 use light\module\antiBot\commands\{
     StartCommand,
-    BirthdayCommand,
-    NameCommand,
-    PhoneCommand,
-    NotifyCommand,
 };
 
 
@@ -17,10 +13,6 @@ class AntiBot extends Bot
 {
     private static $_commands = [
         'start' => StartCommand::class,
-        'birthday' => BirthdayCommand::class,
-        'name' => NameCommand::class,
-        'phone' => PhoneCommand::class,
-        'notify' => NotifyCommand::class,
     ];
 
 

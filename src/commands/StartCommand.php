@@ -2,11 +2,9 @@
 
 namespace light\module\antiBot\commands;
 
-use light\tg\bot\models\Message;
 use light\module\antiBot\constants\BotConst;
 use light\module\antiBot\entities\Contact;
 use light\module\antiBot\helpers\MenuHelper;
-use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 
 class StartCommand extends \light\tg\bot\models\Command
@@ -17,18 +15,12 @@ class StartCommand extends \light\tg\bot\models\Command
 
         $message = $this->getBot()->getNewMessage();
 
-        $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getMenu()));
+        $menu = $this->getBot()->getMenu();
+        if ($menu) {
+            $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($menu));
+        }
 
-//        foreach ($menu as $command => $text) {
-//            $buttons[] = [[
-//                'text' => $text,
-//                'callback_data' => $command
-//            ]];
-//        }
-//
-//        $message->setKeyboardMarkup($buttons);
-
-        $message->setMessageView('start');
+        $message->setMessageView('{@antiBotViews}/start');
 
         $this->getBot()->sendMessage($message);
     }
@@ -36,6 +28,7 @@ class StartCommand extends \light\tg\bot\models\Command
 
     private static function createContact($userId): void
     {
+        return;
         Contact::repository()->delete(['id' => $userId]);
 
         Contact::repository()->create([
