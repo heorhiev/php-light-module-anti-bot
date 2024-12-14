@@ -4,16 +4,13 @@ namespace light\module\antiBot\entities;
 
 use light\orm\Entity;
 use light\orm\repository\Repository;
-use light\module\antiBot\repository\ContactsRepository;
+use light\module\antiBot\repository\UsersRepository;
 
 
-class Contact extends Entity
+class User extends Entity
 {
     public $id;
-    public $name;
     public $command;
-    public $phone;
-    public $birthday;
     public $status;
     public $created;
 
@@ -23,13 +20,13 @@ class Contact extends Entity
     {
         return [
             'integer' => ['id', 'status'],
-            'string' => ['name', 'phone', 'birthday', 'command', 'created'],
+            'string' => ['command', 'created'],
         ];
     }
 
 
     public static function repository(): Repository
     {
-        return new ContactsRepository(self::class);
+        return new UsersRepository(self::class);
     }
 }
