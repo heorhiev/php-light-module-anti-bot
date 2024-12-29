@@ -4,14 +4,14 @@ namespace light\module\antiBot;
 
 use light\tg\bot\Bot;
 use light\module\antiBot\entities\User;
-use light\module\antiBot\commands\{AddReviewCommand, GetReviewCommand, StartCommand, HelpCommand};
+use light\module\antiBot\commands\{ShareUserCommand, GetReviewCommand, StartCommand, HelpCommand};
 
 
 class AntiBot extends Bot
 {
     private static $_commands = [
         'start' => StartCommand::class,
-        'add_review' => AddReviewCommand::class,
+        'add_review' => ShareUserCommand::class,
         'get_review' => GetReviewCommand::class,
         'help' => HelpCommand::class,
     ];
@@ -26,7 +26,7 @@ class AntiBot extends Bot
 
     public function storeCommand($command): bool
     {
-        return User::repository()->update(
+        return (bool) User::repository()->update(
             ['command' => $command],
             ['id' => $this->getUserId()]
         );
@@ -35,5 +35,15 @@ class AntiBot extends Bot
     public static function getCommands(): array
     {
         return self::$_commands;
+    }
+
+
+    public function getDefaultHandler(): ?string
+    {
+        if ($this->getIncomeMessage()->getUsersShared()) {
+            return ShareUserCommand::class;
+        }
+
+        return null;
     }
 }

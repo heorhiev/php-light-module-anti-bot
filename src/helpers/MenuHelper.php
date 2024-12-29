@@ -2,6 +2,7 @@
 
 namespace light\module\antiBot\helpers;
 
+use light\module\antiBot\entities\UserRequest;
 use light\tg\bot\config\MenuDto;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
@@ -11,7 +12,7 @@ class MenuHelper
     /**
      * @param MenuDto[] $menu
      */
-    public static function getKeyboardMarkup(array $menu): ReplyKeyboardMarkup
+    public static function getKeyboardMarkup(int $userId, array $menu): ReplyKeyboardMarkup
     {
         $buttons = [];
 
@@ -20,7 +21,12 @@ class MenuHelper
             $button = ['text' => $item->label];
 
             if ($item->is_request_user)  {
-                $button['request_users'] = ['request_id' => rand(0, 9999)];
+                $requestId = UserRequest::repository()->getIdOrCreate([
+                    'user_id' =>  $userId,
+                    'command' => $item->code,
+                ]);
+
+                $button['request_users'] = ['request_id' => $requestId];
             }
 
             $buttons[] = $button;

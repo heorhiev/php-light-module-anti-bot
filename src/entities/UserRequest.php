@@ -3,13 +3,12 @@
 namespace light\module\antiBot\entities;
 
 use light\orm\Entity;
-use light\orm\repository\Repository;
 use light\module\antiBot\repository\UserRequestsRepository;
 
 
 class UserRequest extends Entity
 {
-    public $request_id;
+    public $id;
     public $user_id;
     public $command;
     public $created;
@@ -19,7 +18,7 @@ class UserRequest extends Entity
     public static function fields(): array
     {
         return [
-            'integer' => ['request_id', 'user_id'],
+            'integer' => ['id', 'user_id'],
             'string' => ['command', 'created'],
         ];
     }

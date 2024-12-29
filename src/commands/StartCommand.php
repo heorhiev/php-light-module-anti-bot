@@ -17,7 +17,7 @@ class StartCommand extends \light\tg\bot\models\Command
 
         $menu = $this->getBot()->getMenu();
         if ($menu) {
-            $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($menu));
+            $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getUserId(), $menu));
         }
 
         $message->setMessageView('{@antiBotViews}/start');
@@ -28,9 +28,7 @@ class StartCommand extends \light\tg\bot\models\Command
 
     private static function createUser($userId): void
     {
-        User::repository()->delete(['id' => $userId]);
-
-        User::repository()->create([
+        User::repository()->getIdOrCreate([
             'id' => $userId,
             'status' => BotConst::USER_STATUS_ACTIVE,
         ]);
