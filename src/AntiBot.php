@@ -24,10 +24,10 @@ class AntiBot extends Bot
     }
 
 
-    public function storeCommand($command): bool
+    public function storeCommand($command, string $data = ''): bool
     {
         return (bool) User::repository()->update(
-            ['command' => $command],
+            ['command' => $command, 'command_data' => $data],
             ['id' => $this->getUserId()]
         );
     }

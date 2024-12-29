@@ -2,9 +2,9 @@
 
 namespace light\module\antiBot\commands;
 
-
-
 use light\module\antiBot\entities\UserRequest;
+use TelegramBot\Api\Types\SharedUser;
+
 
 class ShareUserCommand extends \light\tg\bot\models\Command
 {
@@ -38,6 +38,16 @@ class ShareUserCommand extends \light\tg\bot\models\Command
 
     public function addReview(): void
     {
+        $recipientId = null;
+
+        /** @var SharedUser[] $users */
+        $users = $this->getBot()->getIncomeMessage()->getUsersShared()->getUsers();
+        foreach ($users as $user) {
+            $recipientId = $user->getUserId();
+        }
+
+        $this->getBot()->storeCommand(AddReviewCommand::class, (string) $recipientId);
+
         $message = $this->getBot()->getNewMessage();
 
         $message->setMessageView('{@antiBotViews}/add_review/start');

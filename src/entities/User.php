@@ -11,6 +11,7 @@ class User extends Entity
 {
     public $id;
     public $command;
+    public $command_data;
     public $status;
     public $created;
 
@@ -20,7 +21,7 @@ class User extends Entity
     {
         return [
             'integer' => ['id', 'status'],
-            'string' => ['command', 'created'],
+            'string' => ['command', 'command_data', 'created'],
         ];
     }
 
