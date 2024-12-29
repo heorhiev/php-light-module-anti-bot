@@ -4,21 +4,23 @@ namespace light\module\antiBot;
 
 use light\tg\bot\Bot;
 use light\module\antiBot\entities\User;
-use light\module\antiBot\commands\{ShareUserCommand, StartCommand};
+use light\module\antiBot\commands\{AddReviewCommand, GetReviewCommand, StartCommand, HelpCommand};
 
 
 class AntiBot extends Bot
 {
     private static $_commands = [
         'start' => StartCommand::class,
-        'share_user' => ShareUserCommand::class,
+        'add_review' => AddReviewCommand::class,
+        'get_review' => GetReviewCommand::class,
+        'help' => HelpCommand::class,
     ];
 
 
     public function getStoredCommand(): ?string
     {
         $user = User::repository()->findById($this->getUserId())->asEntityOne();
-        return $user ? $user->command : null;
+        return $user?->command;
     }
 
 

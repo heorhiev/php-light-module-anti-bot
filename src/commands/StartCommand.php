@@ -15,8 +15,6 @@ class StartCommand extends \light\tg\bot\models\Command
 
         $message = $this->getBot()->getNewMessage();
 
-//        file_put_contents('/var/www/runtime/logs/test.txt', $message);
-
         $menu = $this->getBot()->getMenu();
         if ($menu) {
             $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($menu));
