@@ -3,6 +3,7 @@
 namespace light\module\antiBot\commands;
 
 use light\module\antiBot\entities\UserRequest;
+use light\module\antiBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\SharedUser;
 
 
@@ -51,6 +52,8 @@ class ShareUserCommand extends \light\tg\bot\models\Command
         $message = $this->getBot()->getNewMessage();
 
         $message->setMessageView('{@antiBotViews}/add_review/start');
+
+        $message->setKeyboardMarkup(MenuHelper::getCancelMenuKeyboard());
 
         $this->getBot()->sendMessage($message);
     }

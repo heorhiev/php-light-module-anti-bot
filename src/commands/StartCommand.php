@@ -17,7 +17,7 @@ class StartCommand extends \light\tg\bot\models\Command
 
         $menu = $this->getBot()->getMenu();
         if ($menu) {
-            $message->setKeyboardMarkup(MenuHelper::getKeyboardMarkup($this->getBot()->getUserId(), $menu));
+            $message->setKeyboardMarkup(MenuHelper::getDefaultMenuKeyboard($this->getBot()->getUserId(), $menu));
         }
 
         $message->setMessageView('{@antiBotViews}/start');

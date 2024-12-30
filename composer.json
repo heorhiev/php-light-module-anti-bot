@@ -1,5 +1,6 @@
 {
     "name": "heorhiev/php-light-module-anti-bot",
+    "version": "dev-master",
     "authors": [
         {
             "name": "Ruslan",
@@ -13,7 +14,8 @@
         "heorhiev/php-light-app": "dev-master",
         "heorhiev/php-light-orm": "dev-master",
         "heorhiev/php-light-http": "dev-master",
-        "heorhiev/php-light-tg-bot": "dev-master"
+        "heorhiev/php-light-tg-bot": "dev-master",
+        "heorhiev/php-light-i18n": "dev-master"
     },
     "require-dev": {
         "ext-sqlite3": "*"
@@ -39,6 +41,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/heorhiev/php-light-tg-bot.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-i18n.git"
         }
     ]
 }
