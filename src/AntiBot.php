@@ -4,7 +4,7 @@ namespace light\module\antiBot;
 
 use light\tg\bot\Bot;
 use light\module\antiBot\entities\User;
-use light\module\antiBot\commands\{ShareUserCommand, GetReviewCommand, StartCommand, HelpCommand};
+use light\module\antiBot\commands\{CancelCommand, ShareUserCommand, GetReviewCommand, StartCommand, HelpCommand};
 
 
 class AntiBot extends Bot
@@ -14,6 +14,7 @@ class AntiBot extends Bot
         'add_review' => ShareUserCommand::class,
         'get_review' => GetReviewCommand::class,
         'help' => HelpCommand::class,
+        'cancel' => CancelCommand::class,
     ];
 
 

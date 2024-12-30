@@ -4,6 +4,7 @@ namespace light\module\antiBot\helpers;
 
 use light\module\antiBot\entities\UserRequest;
 use light\tg\bot\config\MenuDto;
+use TelegramBot\Api\Types\Inline\InlineKeyboardMarkup;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 use light\i18n\Loco;
 
@@ -36,10 +37,16 @@ class MenuHelper
         return new ReplyKeyboardMarkup([$buttons], false, true, true);
     }
 
+//    public static function getCancelMenuKeyboard(): InlineKeyboardMarkup
+//    {
+//        return new InlineKeyboardMarkup(
+//            [[['text' => Loco::translate('Cancel'), 'callback_data' => '/cancel']]]
+//        );
+//    }
 
     public static function getCancelMenuKeyboard(): ReplyKeyboardMarkup
     {
         $buttons[] = ['text' => Loco::translate('Cancel')];
-        return new ReplyKeyboardMarkup([$buttons], false, true, true);
+        return new ReplyKeyboardMarkup([$buttons], true, true, true);
     }
 }

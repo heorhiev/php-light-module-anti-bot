@@ -2,6 +2,7 @@
 
 namespace light\module\antiBot\commands;
 
+use light\i18n\Loco;
 use light\module\antiBot\entities\UserRequest;
 use light\module\antiBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\SharedUser;
@@ -9,6 +10,12 @@ use TelegramBot\Api\Types\SharedUser;
 
 class ShareUserCommand extends \light\tg\bot\models\Command
 {
+    public static function getTitle(): string
+    {
+        return Loco::translate('Share user command');
+    }
+
+
     /**
      * @throws \Exception
      */

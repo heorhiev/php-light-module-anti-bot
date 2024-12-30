@@ -2,12 +2,19 @@
 
 namespace light\module\antiBot\commands;
 
+use light\i18n\Loco;
 use light\module\antiBot\entities\Review;
 use light\module\antiBot\entities\User;
 
 
 class AddReviewCommand extends \light\tg\bot\models\Command
 {
+    public static function getTitle(): string
+    {
+        return Loco::translate('Add a review');
+    }
+
+
     /**
      * @throws \Exception
      */
