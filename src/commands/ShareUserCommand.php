@@ -3,6 +3,7 @@
 namespace light\module\antiBot\commands;
 
 use light\i18n\Loco;
+use light\module\antiBot\entities\Review;
 use light\module\antiBot\entities\UserRequest;
 use light\module\antiBot\helpers\MenuHelper;
 use TelegramBot\Api\Types\SharedUser;
@@ -64,10 +65,18 @@ class ShareUserCommand extends \light\tg\bot\models\Command
     {
         $recipientId = $this->getBot()->getIncomeMessage()->getUserShared()->getUserId();
 
+        /** @var Review[] $reviews */
+        $reviews = Review::repository()->filter(['recipient_id' => $recipientId])->asEntityAll();
+
         $message = $this->getBot()->getNewMessage();
 
-        $message->setMessageView('{@antiBotViews}/reviews_get/start');
-        $message->setAttributes(['recipientId' => $recipientId]);
+        if ($reviews) {
+            $message->setMessageView('{@antiBotViews}/reviews_get/list');
+            $message->setAttributes(['reviews' => $reviews]);
+        } else {
+            $message->setMessageView('{@antiBotViews}/reviews_get/empty');
+            $message->setAttributes(['reviews' => $reviews]);
+        }
 
         $this->getBot()->sendMessage($message);
     }
