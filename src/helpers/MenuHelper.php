@@ -4,7 +4,6 @@ namespace light\module\antiBot\helpers;
 
 use light\module\antiBot\entities\UserRequest;
 use light\tg\bot\config\MenuDto;
-use TelegramBot\Api\Types\Inline\InlineKeyboardMarkup;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 use light\i18n\Loco;
 

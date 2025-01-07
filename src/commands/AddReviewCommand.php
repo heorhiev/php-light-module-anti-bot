@@ -34,7 +34,7 @@ class AddReviewCommand extends \light\tg\bot\models\Command
 
         $message = $this->getBot()->getNewMessage();
 
-        $message->setMessageView('{@antiBotViews}/add_review/thanks');
+        $message->setMessageView('{@antiBotViews}/review_add/thanks');
 
         $this->getBot()->sendMessage($message);
     }

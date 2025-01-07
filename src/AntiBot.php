@@ -41,7 +41,7 @@ class AntiBot extends Bot
 
     public function getDefaultHandler(): ?string
     {
-        if ($this->getIncomeMessage()->getUsersShared()) {
+        if ($this->getIncomeMessage()->getUserShared()) {
             return ShareUserCommand::class;
         }
 

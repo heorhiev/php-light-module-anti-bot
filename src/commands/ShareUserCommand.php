@@ -21,7 +21,7 @@ class ShareUserCommand extends \light\tg\bot\models\Command
      */
     public function run(): void
     {
-        $requestId = $this->getBot()->getIncomeMessage()->getUsersShared()->getRequestId();
+        $requestId = $this->getBot()->getIncomeMessage()->getUserShared()->getRequestId();
 
         /** @var UserRequest $request */
         $request = UserRequest::repository()->findById($requestId)->asEntityOne();
@@ -46,21 +46,28 @@ class ShareUserCommand extends \light\tg\bot\models\Command
 
     public function addReview(): void
     {
-        $recipientId = null;
-
-        /** @var SharedUser[] $users */
-        $users = $this->getBot()->getIncomeMessage()->getUsersShared()->getUsers();
-        foreach ($users as $user) {
-            $recipientId = $user->getUserId();
-        }
+        $recipientId = $this->getBot()->getIncomeMessage()->getUserShared()->getUserId();
 
         $this->getBot()->storeCommand(AddReviewCommand::class, (string) $recipientId);
 
         $message = $this->getBot()->getNewMessage();
 
-        $message->setMessageView('{@antiBotViews}/add_review/start');
+        $message->setMessageView('{@antiBotViews}/review_add/start');
 
         $message->setKeyboardMarkup(MenuHelper::getCancelMenuKeyboard());
+
+        $this->getBot()->sendMessage($message);
+    }
+
+
+    public function getReviews(): void
+    {
+        $recipientId = $this->getBot()->getIncomeMessage()->getUserShared()->getUserId();
+
+        $message = $this->getBot()->getNewMessage();
+
+        $message->setMessageView('{@antiBotViews}/reviews_get/start');
+        $message->setAttributes(['recipientId' => $recipientId]);
 
         $this->getBot()->sendMessage($message);
     }
